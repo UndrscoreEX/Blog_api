@@ -36,7 +36,7 @@ def kw_search():
         articles = []
         kw = ", ".join(inpt)
         for x in inpt:
-            list_art = df[df['English_Title'].str.contains(x)].index
+            list_art = df[df['English_Title'].str.contains(x.capitalize())].index
             print(list(list_art))
             articles += list(list_art) 
         articles_to_send = [[x, df.iloc[x]] for x in articles]

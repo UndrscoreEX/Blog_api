@@ -16,13 +16,15 @@
 
     <container class="text-center container">
         <h3 class="">And here it is...</h2>
+    <p class='pb-2 pt-2 text-center'><a href="{{url_for('home')}}">Back to home</a></p>
+
     </container>
 
 
 
     <div class="container pt-2 pb-2 mt-2 bg-light border">
         <div class="row ">
-            <div class="col-md-6 px-3">
+            <div class="col-md-6 px-3 pb-5">
                 <h4>
                     {{article[0]}}
                 </h4>
@@ -33,7 +35,7 @@
                     {{article[2]}}
                 </a>
             </div>
-            <div class="col-md-6 px-3">
+            <div class="col-md-6 px-3 pb-5">
                 <h4>
                     {{article[4]}}
                 </h4>
@@ -46,7 +48,6 @@
             </div>
         </div>
     </div>
-    <p class='pb-2 pt-2 text-center'><a href="{{url_for('home')}}">Back to home</a></p>
     <container class="text-center container">
         <h2 class="">search for an article by key word</h2>
         <div class="container">
