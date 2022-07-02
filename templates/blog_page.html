@@ -15,16 +15,16 @@
 <body>
 
     <container class="text-center container">
-        <h3 class="">And here it is...</h2>
+        <h1 class="">And here it is...</h1>
     <p class='pb-2 pt-2 text-center'><a href="{{url_for('home')}}">Back to home</a></p>
 
     </container>
 
 
 
-    <div class="container pt-2 pb-2 mt-2 bg-light border">
+    <div class="container pt-2 mt-2 mb-2 bg-light border">
         <div class="row ">
-            <div class="col-md-6 px-3 pb-5">
+            <div class="col-md-6 px-3 pb-5 pt-2">
                 <h4>
                     {{article[0]}}
                 </h4>
@@ -35,7 +35,7 @@
                     {{article[2]}}
                 </a>
             </div>
-            <div class="col-md-6 px-3 pb-5">
+            <div class="col-md-6 px-3 pb-5 pt-2">
                 <h4>
                     {{article[4]}}
                 </h4>
@@ -49,10 +49,10 @@
         </div>
     </div>
     <container class="text-center container">
-        <h2 class="">search for an article by key word</h2>
+        <h4 class="small-h4">search for an article by key word</h4>
         <div class="container">
-        <div class="row pt-5">
-            <form class="w-50 input-group mx-auto" method="POST" action="{{url_for('kw_search')}}">
+        <div class="row pt-5 ">
+            <form class=" input-group mx-auto col-xs-10 kw-search" method="POST" action="{{url_for('kw_search')}}">
                 <input type="text" class="form-control" name="inpt" placeholder="Enter Key-word (e.g 'Abe', 'Asahi', 'Tokyo')" aria-label="key-word" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                     <!-- <input   class="col-md-3 col-sm-3 col-xs-3 btn btn-secondary" type="submit" value="Submit Answer"> -->

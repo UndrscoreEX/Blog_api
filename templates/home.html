@@ -12,10 +12,10 @@
 </head>
 <body>
     <container class="text-center container">
-        <h1 class="">Search for an article by key word</h1>
+        <h1 class="small-h1">Search for an article by key word</h1>
         <div class="container">
         <div class="row pt-5">
-            <form class="w-50 input-group mx-auto" method="POST" action="{{url_for('kw_search')}}">
+            <form class=" input-group mx-auto col-xs-10 kw-search" method="POST" action="{{url_for('kw_search')}}">
                 <input type="text" class="form-control" name="inpt" placeholder="Enter Key-word (e.g 'Abe', 'Asahi', 'Tokyo')" aria-label="key-word" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                     <!-- <input   class="col-md-3 col-sm-3 col-xs-3 btn btn-secondary" type="submit" value="Submit Answer"> -->
@@ -27,19 +27,19 @@
         </div>
             
     </container>
-    <h4 class="mt-3 text-center"> ...or check from the random list below</h4>
+    <h4 class="mt-3 text-center small-h4"> ...or check from the random list below</h4>
     {% for i in articles: %}
     <div class="container pt-3  w-75 bg-light">
             <div class="row border p-4 m-1 bg-dark ">
                 
-                <div class="col-6">
-                    <a style='text-decoration: none;'class="link-light" href="{{url_for('ind_page',num = i[0])}}">
-                        <h4>{{i[1]['English_Title']}}</h4>
+                <div class="text-center col-md-6 col-sm-12 col-xs-12">
+                    <a style='text-decoration: none;'class="link-light " href="{{url_for('ind_page',num = i[0])}}">
+                        <h4 class="search-result">{{i[1]['English_Title']}}</h4>
                     </a>
                     </div>
-                    <div class="col-6">
+                    <div class="text-center col-md-6 col-sm-12 col-xs-12">
                         <a style='text-decoration: none;' class="link-secondary" href="{{url_for('ind_page',num = i[0])}}">
-                            <h4>{{i[1]['JP_title']}}</h4>
+                            <h4 class="search-result">{{i[1]['JP_title']}}</h4>
                         </a>
                     </div>
 
