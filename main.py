@@ -8,7 +8,6 @@ from flask import Flask, url_for, redirect,render_template
 from flask_bootstrap import Bootstrap
 import random
 
-from sqlalchemy import all_
 app = Flask(__name__)
 Bootstrap(app)
 
