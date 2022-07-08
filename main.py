@@ -49,6 +49,7 @@ def kw_search():
 
 # API routes:
 
+# all articles in JSON
 @app.route('/all')
 def all():
     all_articles =[{
@@ -62,6 +63,8 @@ def all():
     ]
     return jsonify(all_articles)
 
+
+# Individual article in JSON
 @app.route('/all/<int:article>')
 def article_api(article):
     ind_art = df.iloc[int(article)]
@@ -76,13 +79,14 @@ def article_api(article):
         }
     return jsonify({"article":art})
 
+
+# Find all with the entered Keywords
 @app.route('/all/search-json',methods=['GET', "POST"])
 def search():
     if request.method == "POST":
         kw = request.form['inpt'].split()
         print(kw)
         articles = []
-        # articles = [df[df['English_Title'].str.contains(y.capitalize())].index for y in kw]
         for x in kw:
             list_art = df[df['English_Title'].str.contains(x.capitalize())].index
             print(list(list_art))
@@ -102,29 +106,6 @@ def search():
         ]
        
         return jsonify(art)
-        # print('--------------------------------')
-        # redirect(url_for('keyword_parse',keyword = kw))
-
-
-@app.route('/all/<string:keyword>')
-def keyword_parse(keyword):
-        print(keyword)
-        articles =  df[df['English_Title'].str.contains(keyword.capitalize())].index
-        print(articles)
-        articles_to_send = [df.iloc[x] for x in articles]
-        art = [{
-                "JP_title": x["JP_title"],
-                "JP_Body": x["JP_Body"],
-                "Url_JP": x["Url_JP"],
-                "Url_eng": x["Url_eng"],
-                "English_Title": x["English_Title"],
-                "English_Body": x["English_Body"],        
-            } for x in articles_to_send
-        ]
-       
-        return jsonify(art)
-
-
 
 app.config['JSON_AS_ASCII'] = False
 
