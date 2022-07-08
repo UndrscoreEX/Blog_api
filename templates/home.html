@@ -11,6 +11,7 @@
     <title>Rising Wasabi API</title>
 </head>
 <body>
+   
     <container class="text-center container">
         <h1 class="small-h1">Search for an article by key word</h1>
         <div class="container">
@@ -20,7 +21,7 @@
                 <div class="input-group-append">
                     <!-- <input   class="col-md-3 col-sm-3 col-xs-3 btn btn-secondary" type="submit" value="Submit Answer"> -->
 
-                    <button class="btn btn-outline-secondary" type="submit" >Button</button>
+                    <button class="btn btn-outline-secondary" type="submit" >Search</button>
                 </div>
             </form>
         </div>
@@ -46,6 +47,21 @@
             </div>
     </div>
     {% endfor %}
+
+    <div class="container pt-5 api pb-5">
+        <h2 class="text-center">API</h2>
+        <div class="row border text-center">
+            <p class="col-6"><a href="{{url_for('all')}}">all articles (JSON)</a></p>
+            <div class=" col-6">
+                <form class="input-group" method="POST" action="{{url_for('search')}}">
+                    <input type="text" class="form-control" name="inpt" placeholder="Enter Key-word" aria-label="key_word" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit" >Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     
     
