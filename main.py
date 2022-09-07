@@ -31,7 +31,7 @@ def ind_page(num):
 def kw_search():
     if request.method == "POST" and request.form:
         inpt = request.form['inpt'].split(' ')
-        print(inpt)
+        print(request,inpt)
         articles = []
         kw = ", ".join(inpt)
         print(kw)
@@ -40,9 +40,8 @@ def kw_search():
             list_art = df[df['English_Title'].str.contains(x.capitalize())].index
             print(list(list_art))
             articles += list(list_art) 
-            # not sure why, but the index that I can retrieve above can go up to 95, but index 95 is out of range. 
-        articles_to_send = [[x, df.iloc[x]] for x in articles if x <95]
-        print(articles_to_send)
+        articles_to_send = [[x, df.iloc[x]] for x in articles if x !=95]
+        # print(articles_to_send)
         return render_template("search.html",articles = articles_to_send, kw=kw)
 
 
