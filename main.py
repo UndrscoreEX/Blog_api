@@ -1,7 +1,3 @@
-from crypt import methods
-from ensurepip import bootstrap
-from re import X
-import re
 from flask import Flask,jsonify, request
 import pandas as pd
 from flask import Flask, url_for, redirect,render_template 
@@ -16,7 +12,6 @@ data = pd.read_csv('static/RisingWasabiOutput.csv')
 df = pd.DataFrame(data,columns=["JP_title","JP_Body","Url_JP","Url_eng","English_Title","English_Body"]).dropna()
 
 
-# print(df.iloc[95])
 # Website routes
 @app.route('/')
 def home(): 
@@ -39,12 +34,17 @@ def kw_search():
         print(inpt)
         articles = []
         kw = ", ".join(inpt)
+        print(kw)
+
         for x in inpt:
             list_art = df[df['English_Title'].str.contains(x.capitalize())].index
             print(list(list_art))
             articles += list(list_art) 
-        articles_to_send = [[x, df.iloc[x]] for x in articles]
+            # not sure why, but the index that I can retrieve above can go up to 95, but index 95 is out of range. 
+        articles_to_send = [[x, df.iloc[x]] for x in articles if x <95]
+        print(articles_to_send)
         return render_template("search.html",articles = articles_to_send, kw=kw)
+
 
 # API routes:
 
